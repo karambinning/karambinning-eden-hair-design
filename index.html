@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eden Hair Design — King's Lynn salon · Matrix & Wella colour</title>
+<meta name="description" content="Eden Hair Design — a busy independent salon on Tower Street, King's Lynn. Cut, colour, balayage, braids, extensions, perms and wig installs. Call 01553 765555.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plaster:#F4E2DA;
+  --peach:#C9A0A0;
+  --oxblood:#8B4A4A;
+  --ink:#2A1B1D;
+  --cream:#FBF4EF;
+  --rule:rgba(42,27,29,.14);
+  --display:"DM Serif Display", "Hoefler Text", Georgia, serif;
+  --body:"DM Sans", system-ui, sans-serif;
+  --measure: 38ch;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--plaster);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem, .55rem + .9vw, 1.18rem);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{
+  font-family:var(--display);
+  font-weight:400;
+  line-height:.95;
+  letter-spacing:-.015em;
+  margin:0;
+  text-wrap:balance;
+}
+p{ text-wrap:pretty; hyphens:auto; margin:0 0 1em }
+a{ color:inherit }
+a:hover{ text-decoration-thickness:2px }
+img{ max-width:100%; display:block }
+
+/* Paper grain */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(rgba(42,27,29,.045) 1px, transparent 1px),
+    radial-gradient(rgba(42,27,29,.035) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 1px;
+  mix-blend-mode:multiply;
+  z-index:1;
+}
+
+/* Layout helpers */
+.wrap{ width:min(1180px, 92vw); margin-inline:auto }
+.slab{ position:relative; z-index:2 }
+
+/* Top bar */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--plaster) 92%, transparent);
+  backdrop-filter:saturate(140%) blur(6px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1.5rem; padding:.85rem 0;
+}
+.brand{
+  font-family:var(--display);
+  font-size:1.35rem;
+  letter-spacing:.005em;
+}
+.brand em{ font-style:italic; color:var(--oxblood) }
+nav.primary{ display:flex; gap:1.4rem; flex-wrap:wrap }
+nav.primary a{
+  text-decoration:none;
+  font-size:.92rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-weight:500;
+  padding-block:.3rem;
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
+}
+nav.primary a:hover{ border-color:var(--oxblood) }
+.topbar__phone{
+  display:none;
+  font-weight:500;
+  letter-spacing:.04em;
+  font-size:.95rem;
+  text-decoration:none;
+  padding:.55rem 1rem;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  transition:background .25s ease, color .25s ease;
+}
+.topbar__phone:hover{ background:var(--ink); color:var(--plaster) }
+@media (min-width: 880px){
+  .topbar__phone{ display:inline-block }
+}
+
+/* Hero */
+.hero{
+  padding: clamp(3rem, 9vw, 7rem) 0 clamp(3rem, 8vw, 6rem);
+  position:relative; overflow:hidden;
+}
+.hero__eyebrow{
+  font-size:.85rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin-bottom:1.8rem;
+  display:flex; align-items:center; gap:.9rem;
+  color:var(--oxblood);
+}
+.hero__eyebrow::before{
+  content:""; width:42px; height:1.5px; background:var(--oxblood);
+}
+.hero__mast{
+  font-size: clamp(5.5rem, 22vw, 18rem);
+  line-height:.84;
+  letter-spacing:-.04em;
+}
+.hero__mast-word{
+  position:relative;
+  display:inline-block;
+}
+.hero__mast .leaf{
+  position:absolute;
+  top:-.18em; right:-.22em;
+  width:.45em; height:.45em;
+  color:var(--oxblood);
+  transform:rotate(18deg);
+}
+@media (min-width:760px){
+  .hero__mast .leaf{ right:-.34em; }
+}
+.hero__sub{
+  display:block;
+  font-family:var(--display);
+  font-style:italic;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  color:var(--oxblood);
+  margin-top:.4rem;
+  margin-left:.18em;
+  letter-spacing:-.005em;
+}
+.hero__lede{
+  margin-top:2.3rem;
+  max-width:var(--measure);
+  font-size:clamp(1.1rem, .8rem + .6vw, 1.35rem);
+  color:color-mix(in srgb, var(--ink) 86%, transparent);
+}
+.hero__meta{
+  margin-top:2.4rem;
+  display:flex; flex-wrap:wrap; gap:1.2rem 2rem;
+  font-size:.92rem;
+  letter-spacing:.04em;
+}
+.hero__meta a{ text-decoration:none; border-bottom:1px solid var(--ink) }
+.hero__meta strong{ font-weight:500; color:var(--oxblood); margin-right:.45rem; text-transform:uppercase; letter-spacing:.14em; font-size:.78rem }
+
+/* Marquee */
+.marquee{
+  background:var(--oxblood);
+  color:var(--plaster);
+  overflow:hidden;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.marquee__track{
+  display:inline-flex; gap:3rem;
+  white-space:nowrap;
+  padding:1.1rem 0;
+  font-family:var(--display);
+  font-style:italic;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  animation: scroll 38s linear infinite;
+  will-change: transform;
+}
+.marquee__track span{ display:inline-flex; align-items:center; gap:3rem }
+.marquee__track span::after{
+  content:"❋";
+  color:var(--peach);
+  font-size:.6em;
+  vertical-align:middle;
+}
+@keyframes scroll { to { transform: translateX(-50%) } }
+@media (prefers-reduced-motion: reduce){
+  .marquee__track{ animation: none }
+}
+
+/* About */
+.about{
+  background:var(--cream);
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+.about__grid{
+  display:grid;
+  gap:clamp(2rem, 5vw, 5rem);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px){
+  .about__grid{ grid-template-columns: 1.05fr 1fr }
+}
+.section-label{
+  font-size:.78rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  margin-bottom:1.6rem;
+  display:flex; align-items:center; gap:.8rem;
+}
+.section-label::before{
+  content:""; width:28px; height:1.5px; background:currentColor;
+}
+.about h2{
+  font-size:clamp(2.4rem, 5vw, 4.2rem);
+  margin-bottom:1.4rem;
+}
+.about h2 em{ color:var(--oxblood); font-style:italic }
+.about__body p{
+  max-width:var(--measure);
+  font-size:1.05rem;
+}
+.about__pull{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:clamp(1.4rem, 2.6vw, 2rem);
+  line-height:1.25;
+  padding:2rem;
+  background:var(--plaster);
+  border-left:3px solid var(--oxblood);
+  color:var(--ink);
+  align-self:start;
+  position:relative;
+}
+.about__pull::before{
+  content:"“";
+  position:absolute;
+  top:-.2em; left:.35rem;
+  font-size:4rem; color:var(--oxblood);
+  line-height:1;
+}
+
+/* Services */
+.services{
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  background:var(--plaster);
+}
+.services__head{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+  margin-bottom:clamp(2.5rem, 5vw, 4rem);
+}
+@media (min-width:880px){
+  .services__head{ grid-template-columns: 1fr 1.4fr; align-items:end }
+}
+.services h2{
+  font-size:clamp(2.8rem, 6vw, 5rem);
+}
+.services__intro{
+  max-width:var(--measure);
+  color:color-mix(in srgb, var(--ink) 80%, transparent);
+}
+.services__list{
+  list-style:none; padding:0; margin:0;
+  border-top:1px solid var(--rule);
+}
+.services__list li{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:1rem 2rem;
+  align-items:baseline;
+  padding:1.6rem 0;
+  border-bottom:1px solid var(--rule);
+  font-family:var(--display);
+  font-size:clamp(1.7rem, 3.3vw, 2.5rem);
+  letter-spacing:-.01em;
+  position:relative;
+}
+.services__list li small{
+  font-family:var(--body);
+  font-size:.82rem;
+  font-style:normal;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  font-weight:500;
+}
+.services__list li::after{
+  content:"→";
+  position:absolute;
+  right:-.4em; top:50%;
+  transform: translate(0, -50%) translateX(-30px);
+  opacity:0;
+  color:var(--oxblood);
+  transition: transform .3s ease, opacity .3s ease;
+  font-family:var(--body);
+}
+.services__list li:hover::after{
+  transform: translate(0, -50%) translateX(0);
+  opacity:1;
+}
+.services__note{
+  margin-top:2.4rem;
+  font-size:.95rem;
+  color:color-mix(in srgb, var(--ink) 75%, transparent);
+  max-width:48ch;
+}
+
+@supports (animation-timeline: view()) {
+  .services__list li{
+    animation: rise both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+  @keyframes rise {
+    from { opacity:0; transform: translateY(1.4rem) }
+    to   { opacity:1; transform: translateY(0) }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .services__list li{ animation:none !important }
+}
+
+/* Gallery placeholder */
+.gallery{
+  background:var(--ink);
+  color:var(--plaster);
+  padding: clamp(4rem, 10vw, 7rem) 0;
+}
+.gallery .section-label{ color:var(--peach) }
+.gallery h2{
+  font-size:clamp(2.6rem, 5.5vw, 4.4rem);
+  margin-bottom:1.4rem;
+}
+.gallery h2 em{ color:var(--peach); font-style:italic }
+.gallery__grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:1rem;
+  margin-top:3rem;
+}
+.gallery__slot{
+  aspect-ratio: 3 / 4;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(244,226,218,.04) 0 14px,
+      rgba(244,226,218,.07) 14px 28px);
+  border:1px solid color-mix(in srgb, var(--plaster) 18%, transparent);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.78rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:color-mix(in srgb, var(--plaster) 55%, transparent);
+}
+.gallery__slot:nth-child(even){ aspect-ratio: 4 / 5 }
+.gallery__caption{
+  max-width:var(--measure);
+  color:color-mix(in srgb, var(--plaster) 80%, transparent);
+}
+
+/* Contact */
+.contact{
+  background:var(--cream);
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+.contact__grid{
+  display:grid; gap:clamp(2rem, 5vw, 4rem);
+  grid-template-columns:1fr;
+}
+@media (min-width: 880px){
+  .contact__grid{ grid-template-columns: 1fr 1fr }
+}
+.contact h2{
+  font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+  margin-bottom:1.6rem;
+}
+.contact h2 em{ font-style:italic; color:var(--oxblood) }
+.contact dl{
+  margin:0;
+  display:grid;
+  grid-template-columns: max-content 1fr;
+  column-gap:2rem;
+  row-gap:.9rem;
+  font-size:1.02rem;
+}
+.contact dt{
+  font-size:.74rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  padding-top:.35rem;
+  font-weight:500;
+}
+.contact dd{ margin:0 }
+.contact a{ text-decoration:none; border-bottom:1px solid currentColor }
+.contact__hours{ list-style:none; padding:0; margin:0 }
+.contact__hours li{
+  display:flex; justify-content:space-between;
+  padding:.45rem 0;
+  border-bottom:1px dashed var(--rule);
+  font-variant-numeric: tabular-nums;
+}
+.contact__hours li:last-child{ border-bottom:none }
+.contact__hours span:first-child{ color:color-mix(in srgb, var(--ink) 70%, transparent) }
+.contact__map{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  border:none;
+  border-radius:2px;
+  filter: saturate(.75) contrast(1.05);
+  background:var(--plaster);
+}
+.contact__cta{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 1.8rem;
+  background:var(--oxblood);
+  color:var(--plaster);
+  text-decoration:none;
+  font-family:var(--display);
+  font-size:1.4rem;
+  letter-spacing:.005em;
+  border-radius:0;
+  transition: background .25s ease, transform .25s ease;
+}
+.contact__cta:hover{
+  background:var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Footer letterhead */
+footer{
+  background:var(--ink);
+  color:var(--plaster);
+  padding: clamp(3rem, 7vw, 5rem) 0 2rem;
+}
+.footer__grid{
+  display:grid;
+  gap:2.5rem;
+  grid-template-columns:1fr;
+  margin-bottom:3rem;
+}
+@media (min-width: 760px){
+  .footer__grid{ grid-template-columns: 1.4fr 1fr 1fr }
+}
+.footer__mark{
+  font-family:var(--display);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  line-height:1;
+  letter-spacing:-.01em;
+}
+.footer__mark em{ color:var(--peach); font-style:italic }
+.footer__addr{
+  font-family:var(--display);
+  font-size:1.25rem;
+  line-height:1.45;
+  font-style:italic;
+  color:color-mix(in srgb, var(--plaster) 85%, transparent);
+}
+.footer h4{
+  font-family:var(--body);
+  font-size:.78rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--peach);
+  margin-bottom:1rem;
+}
+.footer ul{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem }
+.footer a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent }
+.footer a:hover{ border-color:var(--peach) }
+.footer__rule{
+  border:none;
+  border-top:1px solid color-mix(in srgb, var(--plaster) 18%, transparent);
+  margin:1.5rem 0;
+}
+.footer__base{
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+  font-size:.82rem;
+  color:color-mix(in srgb, var(--plaster) 60%, transparent);
+  letter-spacing:.04em;
+}
+
+/* Skip link */
+.skip{
+  position:absolute; left:-9999px; top:0;
+  background:var(--ink); color:var(--plaster);
+  padding:.6rem 1rem; z-index:100;
+}
+.skip:focus{ left:.5rem; top:.5rem }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<header class="topbar slab">
+  <div class="wrap topbar__inner">
+    <div class="brand">Eden <em>Hair Design</em></div>
+    <nav class="primary" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="topbar__phone" href="tel:+441553765555">01553 765555</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero slab wrap" aria-labelledby="masthead">
+  <div class="hero__eyebrow">A King's Lynn hair salon — Tower Street, PE30</div>
+  <h1 id="masthead" class="hero__mast">
+    <span class="hero__mast-word">Eden<svg class="leaf" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <path d="M50 5 C 78 30, 78 70, 50 95 C 22 70, 22 30, 50 5 Z" fill="currentColor" opacity=".9"/>
+      <path d="M50 10 L 50 92" stroke="var(--plaster)" stroke-width="2" fill="none"/>
+    </svg></span><span class="hero__sub">Hair Design.</span>
+  </h1>
+  <p class="hero__lede">A busy independent salon offering a full range of services using Matrix and Wella colours — for every hair type, from balayage and blow dries to braids, weaves and wig installs.</p>
+  <div class="hero__meta">
+    <div><strong>Call</strong><a href="tel:+441553765555">01553 765555</a></div>
+    <div><strong>Find</strong><a href="#contact">16 Tower Street, PE30 1EJ</a></div>
+  </div>
+</section>
+
+<div class="marquee slab" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Balayage</span><span>Matrix colour</span><span>Wella colour</span><span>Braiding</span><span>Hair extensions</span><span>Wig install</span><span>Perms</span><span>Weaves</span><span>Curly hair</span><span>Children's cuts</span><span>Blow dries</span>
+    <span>Balayage</span><span>Matrix colour</span><span>Wella colour</span><span>Braiding</span><span>Hair extensions</span><span>Wig install</span><span>Perms</span><span>Weaves</span><span>Curly hair</span><span>Children's cuts</span><span>Blow dries</span>
+  </div>
+</div>
+
+<section id="about" class="about slab">
+  <div class="wrap about__grid">
+    <div class="about__body">
+      <div class="section-label">About the salon</div>
+      <h2>A salon for <em>every</em> head of hair on Tower Street.</h2>
+      <p>Eden Hair Design has worked the same Tower Street address in the centre of King's Lynn for years — a few minutes from the Tuesday Market Place, behind the Corn Exchange. It's a busy independent salon, not a chain.</p>
+      <p>The chairs are kept open for cut, colour and finishing, and the clientele runs the full range: classic blow dries, balayage and Matrix &amp; Wella colour work, alongside braiding, weaves, wig installs and perms. If you have hair, there's a service here for it.</p>
+    </div>
+    <aside class="about__pull">
+      Eden is a busy salon in King's Lynn offering a full range of services using Matrix and Wella colours.
+    </aside>
+  </div>
+</section>
+
+<section id="services" class="services slab">
+  <div class="wrap">
+    <div class="services__head">
+      <h2>Services</h2>
+      <p class="services__intro">A working list of what the chairs handle day-to-day. Prices vary by hair length and condition — ring 01553 765555 for a quote or to book in for a consultation.</p>
+    </div>
+    <ul class="services__list">
+      <li><span>Women's Haircut</span><small>cut · style</small></li>
+      <li><span>Children's Haircut</span><small>cut</small></li>
+      <li><span>Blow Dry</span><small>finish</small></li>
+      <li><span>Balayage</span><small>colour</small></li>
+      <li><span>Hair Colouring</span><small>Matrix · Wella</small></li>
+      <li><span>Hair Extensions</span><small>add length</small></li>
+      <li><span>Hair Weaves</span><small>install</small></li>
+      <li><span>Wig Install</span><small>fit · style</small></li>
+      <li><span>Hair Braiding</span><small>protective</small></li>
+      <li><span>Perm</span><small>texture</small></li>
+      <li><span>Curly Hair</span><small>specialist</small></li>
+    </ul>
+    <p class="services__note">Not sure which service you need? Call and describe what you'd like — the team will book you in for the right amount of chair time.</p>
+  </div>
+</section>
+
+<section id="gallery" class="gallery slab">
+  <div class="wrap">
+    <div class="section-label">Gallery</div>
+    <h2>Recent work — <em>coming soon.</em></h2>
+    <p class="gallery__caption">We're putting together a selection of recent colour, balayage and braiding work to show here. In the meantime, follow the salon on Facebook for day-to-day photos and bookings.</p>
+    <div class="gallery__grid" aria-hidden="true">
+      <div class="gallery__slot">Photo</div>
+      <div class="gallery__slot">Photo</div>
+      <div class="gallery__slot">Photo</div>
+      <div class="gallery__slot">Photo</div>
+      <div class="gallery__slot">Photo</div>
+      <div class="gallery__slot">Photo</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact slab">
+  <div class="wrap contact__grid">
+    <div>
+      <div class="section-label">Contact &amp; bookings</div>
+      <h2>Drop in, or <em>call ahead.</em></h2>
+      <dl>
+        <dt>Phone</dt>
+        <dd><a href="tel:+441553765555">01553 765555</a></dd>
+        <dt>Address</dt>
+        <dd>16 Tower Street<br>King's Lynn, Norfolk<br>PE30 1EJ</dd>
+        <dt>Hours</dt>
+        <dd>
+          <ul class="contact__hours">
+            <li><span>Mon – Fri</span><span>9:00 – 20:00</span></li>
+            <li><span>Saturday</span><span>9:00 – 16:00</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+          </ul>
+        </dd>
+      </dl>
+      <a class="contact__cta" href="tel:+441553765555">Call to book →</a>
+    </div>
+    <div>
+      <iframe
+        class="contact__map"
+        title="Map of Eden Hair Design, 16 Tower Street, King's Lynn PE30 1EJ"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=16+Tower+Street,+King's+Lynn,+PE30+1EJ&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="slab">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__mark">Eden <em>Hair Design</em></div>
+        <p class="footer__addr">
+          16 Tower Street<br>
+          King's Lynn, Norfolk<br>
+          PE30 1EJ<br>
+          England
+        </p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#about">About the salon</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="tel:+441553765555">01553 765555</a></li>
+          <li><a href="https://www.google.com/maps?q=16+Tower+Street,+King's+Lynn,+PE30+1EJ" target="_blank" rel="noopener">Open in Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer__rule">
+    <div class="footer__base">
+      <span>&copy; Eden Hair Design, King's Lynn.</span>
+      <span>Independent salon · PE30 1EJ</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
